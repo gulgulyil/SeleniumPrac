@@ -4,9 +4,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 
 public class amazon {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         /*
          1 ChromeDriver'in yerini belirtiyoruz ve WebDriver'i baslatiyoruz.
@@ -31,7 +32,7 @@ public class amazon {
 
         // Bekleme
         try {
-            Thread.sleep(10000); // 5 saniye bekle
+            Thread.sleep(10000); // 10 saniye bekle
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -59,6 +60,26 @@ public class amazon {
         String ilkUrunFiyat = fiyat.getText();
 
         System.out.println("ilk Urunun Fiyati = " + ilkUrunFiyat);
+
+         ilkUrun.click();
+
+        WebElement urun= driver.findElement(By.cssSelector("#add-to-cart-button"));
+
+        urun.click();
+
+        Thread.sleep(3000);
+
+        WebElement cart= driver.findElement(By.xpath("//a[@class='a-button-text' and contains(@href, '/cart?ref_=sw_gtc')]"));
+
+        cart.click();
+
+        WebElement title= driver.findElement(By.xpath("//h2"));
+
+        String expectedTitletext="Shopping Cart";
+
+        Assert.assertTrue(title.getText().contains(expectedTitletext));
+
+        //Urunun adinin sepette dogru sekilde eklendigini kontrol et
 
     }
 }
