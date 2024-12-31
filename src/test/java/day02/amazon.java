@@ -20,7 +20,12 @@ public class amazon {
          8 Assertion 3: Urun adinin bos olmadiginni kontrol ediyoruz.
          9 Assertion 4: Urun fiyatinin bos olmadiginni kontrol ediyoruz.
          10 urun adini ve fiyatini konsola yazdiriyoruz.
-         11 WebDriver'i kapatiyoruz.
+         11 Urunu sepete ekle
+         12 Urunun adinin sepete dogru bir sekilde eklendigini kontrol et
+         13 Urunu sepetten kaldir
+         14 Sepetin bos oldugunu kontrol et
+         15 Anasayfaya don
+         16 WebDriver'i kapatiyoruz.
          * */
 
         WebDriver driver = new ChromeDriver();
